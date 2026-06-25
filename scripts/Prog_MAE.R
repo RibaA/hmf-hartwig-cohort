@@ -29,8 +29,7 @@ int <- intersect(rownames(expr), annot$Symbol) # 25503
 expr <- expr[rownames(expr) %in% int, ]
 idx <- match(rownames(expr), annot$Symbol)
 annot <- annot[idx, ]
-rownames(annot) <- annot$EnsemblGeneID
-rownames(expr) <- rownames(annot)
+rownames(annot) <- annot$Symbol
 
 se_rna <- SummarizedExperiment(
     assays = list(
